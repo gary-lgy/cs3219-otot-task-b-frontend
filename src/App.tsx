@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const classes = useStyles();
   return (
     <SnackbarProvider maxSnack={5}>
-      <Router basename={process.env.REACT_APP_BASENAME}>
+      <Router>
         <NavBar />
         <Box className={classes.body}>
           <Switch>
