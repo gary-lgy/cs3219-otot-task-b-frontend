@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import QuoteIcon from "@material-ui/icons/FormatQuote";
 import React from "react";
 import { useHistory, withRouter } from "react-router-dom";
 
@@ -32,6 +33,7 @@ const NavBar: React.FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
+        <QuoteIcon />
         <Box className={classes.title}>
           <Button color="inherit" onClick={gotoHomePage}>
             <Typography variant="h6">Quotes</Typography>

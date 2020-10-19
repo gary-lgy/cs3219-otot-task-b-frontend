@@ -1,13 +1,15 @@
 import {
+  Box,
   Card,
   CardActions,
   CardContent,
   IconButton,
   makeStyles,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
+import QuoteIcon from "@material-ui/icons/FormatQuote";
 import React, { useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { Quote } from "../types";
@@ -41,6 +43,9 @@ const QuoteCard: React.FC<Props> = ({ quote, handleEdit, handleDelete }) => {
 
   return (
     <Card raised>
+      <Box>
+        <QuoteIcon fontSize="large" />
+      </Box>
       <CardContent className={classes.cardContent}>
         <Typography variant="h2" gutterBottom>
           {`${content}`}
@@ -58,7 +63,7 @@ const QuoteCard: React.FC<Props> = ({ quote, handleEdit, handleDelete }) => {
         <IconButton onClick={onDelete}>
           <DeleteIcon />
         </IconButton>
-        { deleting && <Spinner />}
+        {deleting && <Spinner />}
       </CardActions>
     </Card>
   );
