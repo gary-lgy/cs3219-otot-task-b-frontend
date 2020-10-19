@@ -31,19 +31,22 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <QuoteIcon />
-        <Box className={classes.title}>
-          <Button color="inherit" onClick={gotoHomePage}>
-            <Typography variant="h6">Quotes</Typography>
-          </Button>
-        </Box>
-        <IconButton color="inherit" onClick={gotoNewQuotePage}>
-          <AddIcon />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar>
+        <Toolbar>
+          <QuoteIcon />
+          <Box className={classes.title}>
+            <Button color="inherit" onClick={gotoHomePage}>
+              <Typography variant="h6">Quotes</Typography>
+            </Button>
+          </Box>
+          <IconButton color="inherit" onClick={gotoNewQuotePage}>
+            <AddIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </>
   );
 };
 
