@@ -40,10 +40,12 @@ const QuotesPage: React.FC = () => {
       enqueueSnackbar("Quote deleted");
       // Force the page to refresh
       setIsLoading(true);
+      return true;
     } catch (err) {
       enqueueSnackbar(`Something went wrong: ${err.message}`, {
         variant: "error",
       });
+      return false;
     }
   };
 

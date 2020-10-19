@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type Props = {
-  text: string;
+  text?: string;
 };
 
 export const Spinner: React.FC<Props> = ({ text }) => {
@@ -32,7 +32,7 @@ export const Spinner: React.FC<Props> = ({ text }) => {
   return (
     <div className={classes.root}>
       <CircularProgress className={classes.spinner} />
-      <Typography variant="h5">{text}</Typography>
+      {text && <Typography variant="h5">{text}</Typography>}
     </div>
   );
 };
