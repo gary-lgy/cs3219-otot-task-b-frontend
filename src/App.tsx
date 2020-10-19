@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 import { SnackbarProvider } from "notistack";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import EditQuotePage from "./pages/EditQuotePage";
 import NewQuotePage from "./pages/NewQuotePage";
@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const classes = useStyles();
   return (
     <SnackbarProvider maxSnack={5}>
-      <Router>
+      <Router basename={process.env.REACT_APP_BASENAME}>
         <NavBar />
         <Box className={classes.body}>
           <Switch>
