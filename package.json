@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "https://gary-lgy.github.io/cs3219-otot-task-b-frontend",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
