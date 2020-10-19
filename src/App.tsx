@@ -1,8 +1,39 @@
+import { Box, makeStyles } from "@material-ui/core";
 import React from "react";
-import { QuotePage } from "./pages/QuotePage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import EditQuotePage from "./pages/EditQuotePage";
+import NewQuotePage from "./pages/NewQuotePage";
+import QuotesPage from "./pages/QuotesPage";
+
+const useStyles = makeStyles((theme) => ({
+  body: {
+    marginTop: theme.spacing(8),
+  },
+}));
 
 const App: React.FC = () => {
-  return <QuotePage />;
+  const classes = useStyles();
+  return (
+    <>
+      <Router>
+        <NavBar />
+        <Box className={classes.body}>
+          <Switch>
+            <Route exact path="/">
+              <QuotesPage />
+            </Route>
+            <Route exact path="/new">
+              <NewQuotePage />
+            </Route>
+            <Route exact path="/edit/:quoteId">
+              <EditQuotePage />
+            </Route>
+          </Switch>
+        </Box>
+      </Router>
+    </>
+  );
 };
 
 export default App;

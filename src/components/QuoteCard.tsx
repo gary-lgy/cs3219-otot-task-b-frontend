@@ -1,5 +1,16 @@
-import { Card, CardContent, makeStyles, Typography } from "@material-ui/core";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  IconButton,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import React from "react";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import { Quote } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   cardContent: {
@@ -7,23 +18,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const QuoteCard: React.FC<{ body: string; author: string }> = ({
-  body,
-  author,
-}) => {
+type Props = RouteComponentProps<void> & {
+  quote: Quote;
+  handleEdit: () => void;
+  handleDelete: () => void;
+};
+
+const QuoteCard: React.FC<Props> = ({ quote, handleEdit, handleDelete }) => {
+  const { authorName, content } = quote;
   const classes = useStyles();
 
   return (
     <Card raised>
       <CardContent className={classes.cardContent}>
         <Typography variant="h2" gutterBottom>
-          {`${body}`}
+          {`${content}`}
         </Typography>
         <Typography
           color="textSecondary"
           align="right"
-        >{`- ${author}`}</Typography>
+        >{`- ${authorName}`}</Typography>
       </CardContent>
+
+      <CardActions>
+        <IconButton onClick={handleEdit}>
+          <EditIcon />
+        </IconButton>
+        <IconButton onClick={handleDelete}>
+          <DeleteIcon />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 };
+
+export default withRouter(QuoteCard);

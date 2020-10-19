@@ -1,30 +1,58 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import { Quote } from "../types";
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
 const quotesUrl = `${baseUrl}/quotes`;
-const quoteUrl = (id: number) => `${quotesUrl}/${id}`;
+const quoteUrl = (id: number | string) => `${quotesUrl}/${id}`;
 
-export const getQuotes = async () => {
-  return await axios.get(quotesUrl);
+export type RequestResult<T> =
+  | ({ success: true } & { data: T })
+  | ({ success: false } & { message: string });
+
+const processRequest = async <T>(
+  responsePromise: Promise<AxiosResponse<T>>
+): Promise<RequestResult<T>> => {
+  try {
+    const response = await responsePromise;
+    return { success: true, data: response.data };
+  } catch (error) {
+    return {
+      success: false,
+      message: error.response?.message ?? error.message,
+    };
+  }
 };
 
-export const getQuote = async (id: number) => {
-  return await axios.get(quoteUrl(id));
+export const getQuotes = async (): Promise<
+  RequestResult<{ quotes: Quote[] }>
+> => {
+  return await processRequest(axios.get(quotesUrl));
 };
 
-export const createQuote = async (content: string, authorName: string) => {
-  return await axios.post(quotesUrl, { content, authorName });
+export const getQuote = async (
+  id: number | string
+): Promise<RequestResult<{ quote: Quote }>> => {
+  return await processRequest(axios.get(quoteUrl(id)));
+};
+
+export const createQuote = async (
+  content: string,
+  authorName: string
+): Promise<RequestResult<{ quote: Quote }>> => {
+  return await processRequest(axios.post(quotesUrl, { content, authorName }));
 };
 
 export const editQuote = async (
-  id: number,
+  id: number | string,
   content: string,
   authorName: string
-) => {
-  return await axios.put(quoteUrl(id), { content, authorName });
+): Promise<RequestResult<{ quote: Quote }>> => {
+  return await processRequest(axios.put(quoteUrl(id), { content, authorName }));
 };
 
-export const deleteQuote = async (id: number) => {
-  return await axios.delete(quoteUrl(id));
+export const deleteQuote = async (
+  id: number | string
+): Promise<RequestResult<void>> => {
+  return processRequest(axios.delete(quoteUrl(id)));
 };
