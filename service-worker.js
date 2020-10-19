@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/cs3219-otot-task-b-frontend/precache-manifest.951f4eba4061fa119584f5bccc33f8e1.js"
+  "/cs3219-otot-task-b-frontend/precache-manifest.98b67e1b76aadeea421910d49bf0774b.js"
 );
 
 self.addEventListener('message', (event) => {
