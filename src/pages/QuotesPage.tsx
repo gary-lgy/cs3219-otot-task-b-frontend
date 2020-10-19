@@ -86,7 +86,7 @@ const QuotesPage: React.FC = () => {
     <Box className={classes.quotesBox}>
       {quotes.map((quote) => (
         <QuoteCard
-          key={quote.content.substr(0, 5)}
+          key={quote.id}
           quote={quote}
           handleEdit={() => handleEdit(quote.id)}
           handleDelete={() => handleDelete(quote.id)}
