@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9551f513d34147b845b06461c2e5b6d8",
+    "revision": "639237a6ced79e593bcdc4e090e9b16e",
     "url": "/cs3219-otot-task-b-frontend/index.html"
   },
   {
-    "revision": "b19899c66505e13af649",
+    "revision": "1d47db49b31cbed7e185",
     "url": "/cs3219-otot-task-b-frontend/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cs3219-otot-task-b-frontend/static/js/2.a7f7b4ec.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b19899c66505e13af649",
-    "url": "/cs3219-otot-task-b-frontend/static/js/main.76d27177.chunk.js"
+    "revision": "1d47db49b31cbed7e185",
+    "url": "/cs3219-otot-task-b-frontend/static/js/main.7ceb97c8.chunk.js"
   },
   {
     "revision": "bbde7193d406597c0dc1",
