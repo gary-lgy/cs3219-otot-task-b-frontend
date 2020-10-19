@@ -1,4 +1,5 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, withRouter } from "react-router-dom";
 import { deleteQuote, getQuotes } from "../api/quotes";
@@ -28,14 +29,22 @@ const QuotesPage: React.FC = () => {
   const [quotes, setQuotes] = useState<Quote[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
   const handleEdit = (id: number | string) => {
     history.push(`/edit/${id}`);
   };
   const handleDelete = async (id: number | string) => {
-    await deleteQuote(id);
-    // Force the page to refresh
-    setIsLoading(true);
+    try {
+      await deleteQuote(id);
+      enqueueSnackbar("Quote deleted");
+      // Force the page to refresh
+      setIsLoading(true);
+    } catch (err) {
+      enqueueSnackbar(`Something went wrong: ${err.message}`, {
+        variant: "error",
+      });
+    }
   };
 
   useEffect(() => {
@@ -45,11 +54,14 @@ const QuotesPage: React.FC = () => {
     getQuotes().then((result) => {
       setIsLoading(false);
       if (!result.success) {
+        enqueueSnackbar(`Something went wrong: ${result.message}`, {
+          variant: "error",
+        });
         return;
       }
       setQuotes(result.data.quotes);
     });
-  }, [isLoading, setIsLoading]);
+  }, [enqueueSnackbar, isLoading, setIsLoading]);
 
   if (quotes === null || isLoading) {
     return <CenteredSpinner text="Loading..." />;

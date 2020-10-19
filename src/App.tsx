@@ -1,4 +1,5 @@
 import { Box, makeStyles } from "@material-ui/core";
+import { SnackbarProvider } from "notistack";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 const App: React.FC = () => {
   const classes = useStyles();
   return (
-    <>
+    <SnackbarProvider maxSnack={5}>
       <Router>
         <NavBar />
         <Box className={classes.body}>
@@ -32,7 +33,7 @@ const App: React.FC = () => {
           </Switch>
         </Box>
       </Router>
-    </>
+    </SnackbarProvider>
   );
 };
 
