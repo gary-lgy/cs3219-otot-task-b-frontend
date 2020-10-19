@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
-import { QuoteCard } from "./QuoteCard";
-import { Quote } from "./types";
+import { QuoteCard } from "../components/QuoteCard";
+import { Quote } from "../types";
 
 const useStyles = makeStyles((theme) => ({
   quote: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const QuoteContainer: React.FC = () => {
+export const QuotePage: React.FC = () => {
   const classes = useStyles();
 
   const [quote, setQuote] = useState<Quote | null>({

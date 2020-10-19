@@ -1,8 +1,8 @@
 import React from "react";
-import { QuoteContainer } from "./QuoteContainer";
+import { QuotePage } from "./pages/QuotePage";
 
 const App: React.FC = () => {
-  return <QuoteContainer />;
+  return <QuotePage />;
 };
 
 export default App;
