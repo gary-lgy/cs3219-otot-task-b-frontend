@@ -35,10 +35,12 @@ const EditQuotePage: React.FC<Props> = (props) => {
       await editQuote(quoteId, content, authorName);
       history.push("/");
       enqueueSnackbar("Quote updated", { variant: "success" });
+      return true;
     } catch (err) {
       enqueueSnackbar(`Something went wrong: ${err.message}`, {
         variant: "error",
       });
+      return false;
     }
   };
 
@@ -48,7 +50,7 @@ const EditQuotePage: React.FC<Props> = (props) => {
 
   return (
     <QuoteForm
-      handleSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       header="Edit quote"
       action="Edit"
       initialAuthorName={quote.authorName}

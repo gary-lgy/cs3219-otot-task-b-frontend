@@ -35,12 +35,21 @@ export const QuoteForm: React.FC<{
   action: string;
   initialAuthorName?: string;
   initialContent?: string;
-  handleSubmit: (authorName: string, content: string) => void;
-}> = ({ handleSubmit, header, action, initialAuthorName, initialContent }) => {
+  onSubmit: (authorName: string, content: string) => Promise<boolean>;
+}> = ({ onSubmit, header, action, initialAuthorName, initialContent }) => {
   const classes = useStyles();
 
   const [authorName, setAuthorName] = useState(initialAuthorName || "");
   const [content, setContent] = useState(initialContent || "");
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    const successful = await onSubmit(authorName, content);
+    if (!successful) {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <Card className={classes.root}>
@@ -68,8 +77,9 @@ export const QuoteForm: React.FC<{
           <Button
             variant="contained"
             color="primary"
-            onClick={() => handleSubmit(authorName, content)}
+            onClick={handleSubmit}
             className={classes.button}
+            disabled={submitting}
           >
             {action}
           </Button>

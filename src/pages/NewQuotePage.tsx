@@ -13,16 +13,18 @@ const NewQuotePage: React.FC = () => {
       await createQuote(content, authorName);
       history.push("/");
       enqueueSnackbar("New quote created", { variant: "success" });
+      return true;
     } catch (err) {
       enqueueSnackbar(`Something went wrong ${err.message}`, {
         variant: "error",
       });
+      return false;
     }
   };
 
   return (
     <QuoteForm
-      handleSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       header="Create new quote"
       action="Create"
     />
