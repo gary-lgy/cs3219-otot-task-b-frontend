@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cs3219-otot-task-b-frontend/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/cs3219-otot-task-b-frontend/static/js/main.6e3c653d.chunk.js",
-    "main.js.map": "/cs3219-otot-task-b-frontend/static/js/main.6e3c653d.chunk.js.map",
+    "main.js": "/cs3219-otot-task-b-frontend/static/js/main.76d27177.chunk.js",
+    "main.js.map": "/cs3219-otot-task-b-frontend/static/js/main.76d27177.chunk.js.map",
     "runtime-main.js": "/cs3219-otot-task-b-frontend/static/js/runtime-main.0d3b82ac.js",
     "runtime-main.js.map": "/cs3219-otot-task-b-frontend/static/js/runtime-main.0d3b82ac.js.map",
     "static/js/2.a7f7b4ec.chunk.js": "/cs3219-otot-task-b-frontend/static/js/2.a7f7b4ec.chunk.js",
     "static/js/2.a7f7b4ec.chunk.js.map": "/cs3219-otot-task-b-frontend/static/js/2.a7f7b4ec.chunk.js.map",
     "index.html": "/cs3219-otot-task-b-frontend/index.html",
-    "precache-manifest.98b67e1b76aadeea421910d49bf0774b.js": "/cs3219-otot-task-b-frontend/precache-manifest.98b67e1b76aadeea421910d49bf0774b.js",
+    "precache-manifest.f4b1aae40483a3269354207663b5b5a0.js": "/cs3219-otot-task-b-frontend/precache-manifest.f4b1aae40483a3269354207663b5b5a0.js",
     "service-worker.js": "/cs3219-otot-task-b-frontend/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/cs3219-otot-task-b-frontend/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.a7f7b4ec.chunk.js.LICENSE.txt": "/cs3219-otot-task-b-frontend/static/js/2.a7f7b4ec.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.0d3b82ac.js",
     "static/js/2.a7f7b4ec.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.6e3c653d.chunk.js"
+    "static/js/main.76d27177.chunk.js"
   ]
 }
