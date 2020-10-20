@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f6c08aa611ee12e08ae4c2eb2b694750",
+    "revision": "158f432abf40968e032a59f17acfa637",
     "url": "/cs3219-otot-task-b-frontend/index.html"
   },
   {
-    "revision": "38a7572cb00b47a45fa7",
+    "revision": "35a9ba72a713bae7d123",
     "url": "/cs3219-otot-task-b-frontend/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "a7a61b6fd45270774a95",
-    "url": "/cs3219-otot-task-b-frontend/static/js/2.c150ec14.chunk.js"
+    "revision": "ee7e86bb959fec9d706c",
+    "url": "/cs3219-otot-task-b-frontend/static/js/2.b5a7e529.chunk.js"
   },
   {
     "revision": "6397acf4c5cafcd591a770ce33fc3e2f",
-    "url": "/cs3219-otot-task-b-frontend/static/js/2.c150ec14.chunk.js.LICENSE.txt"
+    "url": "/cs3219-otot-task-b-frontend/static/js/2.b5a7e529.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "38a7572cb00b47a45fa7",
-    "url": "/cs3219-otot-task-b-frontend/static/js/main.835fa0a2.chunk.js"
+    "revision": "35a9ba72a713bae7d123",
+    "url": "/cs3219-otot-task-b-frontend/static/js/main.f21cbcb7.chunk.js"
   },
   {
     "revision": "bbde7193d406597c0dc1",
