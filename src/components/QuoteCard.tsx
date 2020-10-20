@@ -60,7 +60,7 @@ const QuoteCard: React.FC<Props> = ({ quote, handleEdit, handleDelete }) => {
         <IconButton onClick={handleEdit}>
           <EditIcon />
         </IconButton>
-        <IconButton onClick={onDelete}>
+        <IconButton onClick={onDelete} disabled={deleting}>
           <DeleteIcon />
         </IconButton>
         {deleting && <Spinner />}
