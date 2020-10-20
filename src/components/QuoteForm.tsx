@@ -6,6 +6,7 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,9 +44,15 @@ export const QuoteForm: React.FC<{
   const [content, setContent] = useState(initialContent || "");
   const [submitting, setSubmitting] = useState(false);
 
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   const handleSubmit = async () => {
     setSubmitting(true);
+    const key = enqueueSnackbar("Submitting...");
+
     const successful = await onSubmit(authorName, content);
+
+    closeSnackbar(key);
     if (!successful) {
       setSubmitting(false);
     }
@@ -79,7 +86,9 @@ export const QuoteForm: React.FC<{
             color="primary"
             onClick={handleSubmit}
             className={classes.button}
-            disabled={submitting}
+            disabled={
+              submitting || authorName.length === 0 || content.length === 0
+            }
           >
             {action}
           </Button>

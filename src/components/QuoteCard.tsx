@@ -10,10 +10,10 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import QuoteIcon from "@material-ui/icons/FormatQuote";
+import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { Quote } from "../types";
-import { Spinner } from "./Spinner";
 
 const useStyles = makeStyles((theme) => ({
   cardContent: {
@@ -33,9 +33,15 @@ const QuoteCard: React.FC<Props> = ({ quote, handleEdit, handleDelete }) => {
 
   const [deleting, setDeleting] = useState(false);
 
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   const onDelete = async () => {
     setDeleting(true);
+    const key = enqueueSnackbar("Deleting...");
+
     const deleteSuccessful = await handleDelete();
+
+    closeSnackbar(key);
     if (!deleteSuccessful) {
       setDeleting(false);
     }
@@ -63,7 +69,6 @@ const QuoteCard: React.FC<Props> = ({ quote, handleEdit, handleDelete }) => {
         <IconButton onClick={onDelete} disabled={deleting}>
           <DeleteIcon />
         </IconButton>
-        {deleting && <Spinner />}
       </CardActions>
     </Card>
   );
