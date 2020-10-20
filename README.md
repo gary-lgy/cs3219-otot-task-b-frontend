@@ -1,44 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quotes
 
-## Available Scripts
+Deployed version: <https://gary-lgy.github.io/cs3219-otot-task-b-frontend>
 
-In the project directory, you can run:
+Quotes is a web app that allows users to view, create, edit, and delete quotes.
 
-### `yarn start`
+This is part of my submission for AY2020/21 Sem1 CS3219 "OTOT" Task B.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This repository contains:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- The React + TypeScript client
 
-### `yarn test`
+The backend repository can be found [here](https://www.github.com/gary-lgy/cs3219-otot-task-b-backend/).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Development setup
 
-### `yarn build`
+### Clone the repository
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone git@github.com:gary-lgy/cs3219-otot-task-b-frontend.git
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd cs3219-otot-task-b-frontend
+yarn install
+```
 
-### `yarn eject`
+### Configure the environment variables
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The `.env` file contains the configuration options.
+Currently, it only contains the backend URL.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The backend URL included by default is the deployed RESTful API on AWS Lambda. To use another server instance, change the url to point to the instance.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Build and run the project
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+yarn start
+```
